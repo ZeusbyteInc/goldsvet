@@ -3,6 +3,13 @@
 [![build](https://img.shields.io/github/actions/workflow/status/ZeusbyteInc/goldsvet/build.yml?style=for-the-badge)](https://github.com/ZeusbyteInc/goldsvet/actions/workflows/build.yml)
 [![written by humans](https://img.shields.io/badge/written_by_humans-not_ai-blue?style=for-the-badge)](https://github.com/ZeusbyteInc/goldsvet/commits/main/)
 
+[![PHP](https://img.shields.io/badge/PHP-8.4%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Vue](https://img.shields.io/badge/Vue-3-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org)
+[![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
+[![Redis](https://img.shields.io/badge/Redis-cache%20%2B%20queues-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
+[![License](https://img.shields.io/badge/license-proprietary-8B8B8B?style=for-the-badge)](#disclaimer)
+
 **Web casino platform — formerly Goldsvet.**
 
 This is the official repository. Release 3.0 (2026) runs on Laravel 12 with PHP 8.4, ships a quick installer, a merged single database, demo play accounts, and more than 1,300 games.
@@ -12,7 +19,6 @@ This is the official repository. Release 3.0 (2026) runs on Laravel 12 with PHP 
 | | |
 | --- | --- |
 | **Release** | 3.0 — 2026 |
-| **Stack** | Laravel 12 · PHP 8.4 · Node.js 22 · MySQL 8 · Redis |
 | **Games** | 1,300+ titles · 60 GB+ |
 | **Providers** | Pragmatic Play · PG Soft · EGT · KA · NetGame · and more |
 | **Channel** | [t.me/goldsvet1](https://t.me/goldsvet1) |
@@ -62,6 +68,36 @@ This repository is a curated public preview of the platform: a selection of real
 | Frontend | Inertia.js with Vue 3, Tailwind CSS, Alpine.js, Chart.js — built with Vite |
 | Game server | Node.js (`UnifiedServer.js`) with ws and Socket.IO, direct MySQL and Redis access, Winston logging — managed with PM2 |
 | Data | MySQL 8, Redis |
+
+## Architecture
+
+```mermaid
+flowchart TB
+    subgraph client["Client"]
+        B["Browser<br>Inertia.js / Vue 3 SPA — lobby, wallet, admin"]
+        G["Game canvas / iframe"]
+    end
+
+    subgraph app["Application server"]
+        A["Apache<br>SSL, mod_rewrite"]
+        L["Laravel 12 · PHP 8.4<br>Sanctum auth, Stripe, Google 2FA"]
+        N["PTWebSocket — Node.js 22, PM2<br>Slots, Arcade, Binary servers<br>Socket.IO + NullEngine (local math kernel)"]
+    end
+
+    DB[("MySQL 8")]
+    R[("Redis")]
+
+    B -->|HTTPS| A
+    A --> L
+    G -->|WSS| N
+    L <--> DB
+    L <--> R
+    N <--> DB
+    N <--> R
+    L -.->|internal socket| N
+```
+
+The web application and the real-time game server are separate processes: Laravel serves the SPA and handles authentication, payments, and administration, while the Node.js server runs every live game session over an encrypted WebSocket. Both share the same MySQL database and Redis caches, and Laravel coordinates the game server through an authenticated internal socket.
 
 ---
 
