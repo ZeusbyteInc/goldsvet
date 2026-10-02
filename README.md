@@ -2,7 +2,7 @@
 
 ![OSS Casino](slot.png)
 
-Web casino platform, formerly known as **Goldsvet**. This repository is the official distribution point of the project. Release 3.0 (2026) runs on Laravel 12 with PHP 8.4, a quick installer, a merged single database, and demo play accounts — shipping with 1,200+ games.
+Web casino platform, formerly known as **Goldsvet**. This repository is the official distribution point of the project. Release 3.0 (2026) runs on Laravel 12 with PHP 8.4, a quick installer, a merged single database, and demo play accounts — shipping with more than 1,300 games.
 
 Official community on Telegram: **[@osscasino](https://t.me/osscasino)**
 
@@ -16,7 +16,7 @@ Only the GitHub account has changed. The official Telegram channel and group, **
 
 This repository contains a public preview of the platform: the Laravel entry point, the admin panel, the frontend themes, and the server configuration files.
 
-The complete source distribution — approximately 1,200+ games totaling 50+ GB, including the latest Pragmatic Play titles and PG Soft games (fixed and mobile-responsive) — is distributed directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
+The complete source distribution — more than 1,300 games totaling over 60 GB, including the latest Pragmatic Play titles and PG Soft games (fixed and mobile-responsive) — is distributed directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
 
 Repository layout:
 
