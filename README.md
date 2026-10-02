@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="docs/banner.svg" alt="Goldsvet - Gaming Platform &amp; Lobby Engine Framework" width="100%">
+<img src="docs/banner.svg?v=3" alt="Goldsvet - Slots Platform Framework by Zeusbyte Inc." width="100%">
 
-**A modular, API-first framework for building online gaming platforms.**
+**A modular, API-first slots platform framework.**
 
 [![Status](https://img.shields.io/badge/status-in%20development-7C3AED?style=flat-square)](#roadmap)
 [![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=flat-square&logo=php&logoColor=white)](https://www.php.net)
@@ -18,7 +18,7 @@
 
 ## Overview
 
-Goldsvet provides the backbone every gaming platform needs - lobby, accounts, wallet, and administration - as clean, swappable modules so operators and development teams can focus on the games, not the plumbing.
+Goldsvet provides the backbone every slots platform needs - lobby, accounts, wallet, and administration - as clean, swappable modules so operators and development teams can focus on the games, not the plumbing.
 
 - **API-first** - every capability is exposed over a versioned REST API
 - **Modular** - enable only the modules you need; no monolith lock-in
@@ -29,7 +29,7 @@ Goldsvet provides the backbone every gaming platform needs - lobby, accounts, wa
 
 | Module | What it does |
 |--------|--------------|
-| **Lobby Engine** | Configurable game lobby with categories, search, and featured placements |
+| **Lobby Engine** | Configurable slots lobby with categories, search, and featured placements |
 | **Player Accounts** | Registration, authentication, sessions, KYC-ready profile structure |
 | **Wallet & Transactions** | Provider-agnostic balance layer with full transaction ledger |
 | **Admin Panel** | Content, player, and configuration management with role-based access |
@@ -95,4 +95,3 @@ This repository contains **original code developed independently**; it is not de
 **Zeusbyte Inc.** — [github.com/ZeusbyteInc](https://github.com/ZeusbyteInc)
 
 </div>
-pe
