@@ -40,17 +40,17 @@ Only the GitHub account has changed. The official Telegram channel **[t.me/golds
 
 ## Overview
 
-This repository is a public preview of the platform. The complete source distribution — more than 1,300 games totaling over 60 GB, including the latest Pragmatic Play titles and PG Soft games (fixed and mobile-responsive) — is distributed directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
+This repository is a curated public preview of the platform: a selection of real source files from the current production codebase, published so you can verify the quality and architecture for yourself. The full distribution — more than 1,300 games totaling over 60 GB, listed title by title in the [complete game catalog](docs/GAMES.md) generated from the platform database — is available directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
 
-**Project structure**
+**What this preview includes**
 
-- `app/` — application core: game engines (`Games/`), HTTP controllers, jobs, services, repositories, and observers
-- `config/` · `routes/` · `database/` — Laravel configuration, routing, migrations, and seeders
-- `public/` — web root: compiled frontend assets, frontend themes (`Default`, `Stake`), and the game catalog (`games/`)
-- `resources/` — Inertia.js/Vue frontend source, language files, and views
-- `PTWebSocket/` — Node.js real-time game server (`src/UnifiedServer.js`) with per-game modules, services, and SSL configuration
+- `composer.json` · `package.json` — the real dependency manifests of the platform
+- `app/` — production domain models (`Shop`, `StatGame`, `Category`, `HappyHour`)
+- `database/migrations/` — recent migrations from the live codebase
+- `PTWebSocket/` — the Node.js game server entry point (`src/UnifiedServer.js`), PM2 configuration, and dependencies
+- `docs/GAMES.md` — the full game catalog, 1,302 titles grouped by provider
 - `socket_config.json` · `socket_config2.json` · `arcade_config.json` — WebSocket and arcade server configuration
-- `storage/` — application storage and tournaments
+- `index.php` · `.htaccess` · `storage/` — application entry point, Apache rules, and storage layout
 
 ---
 
