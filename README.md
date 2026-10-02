@@ -1,150 +1,82 @@
-<div align="center">
-
-<img src="slot.png" alt="OSS Casino" width="600"/>
-
 # OSS Casino 2026
 
-### Formerly Goldsvet — Web Casino Platform & Server Configuration Guide
+![OSS Casino](slot.png)
 
-[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
-[![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=flat-square&logo=php&logoColor=white)](https://php.net)
-[![Node.js](https://img.shields.io/badge/Node.js-22-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://mysql.com)
-[![Redis](https://img.shields.io/badge/Redis-required-DC382D?style=flat-square&logo=redis&logoColor=white)](https://redis.io)
-[![PM2](https://img.shields.io/badge/PM2-managed-2B037A?style=flat-square&logo=pm2&logoColor=white)](https://pm2.keymetrics.io)
+Web casino platform, formerly known as **Goldsvet**. This repository is the official distribution point of the project. Release 3.0 (2026) adds Laravel 12 and PHP 8.3+ support, a quick installer, a merged single database, and demo play accounts — shipping with 1,200+ games.
 
-**Official Telegram Community:** [t.me/osscasino](https://t.me/osscasino)
+Official community on Telegram: **[@osscasino](https://t.me/osscasino)**
 
-<img src="2026.png" alt="OSS Casino 3.0 — 2026 release" width="720"/>
+## Old repository and account
 
-**OSS Casino 3.0 (2026 release)** adds **Laravel 12** and **PHP 8.3+** support, an **easy one-file installer**, a merged single database, and demo play accounts — now shipping with **1,200+ games**.
+The project was previously distributed under the `github.com/zeusbyte` account at `github.com/zeusbyte/goldsvet`. Following the departure of former team members, that account and its repositories are **no longer controlled or maintained by the current development team** and are not affiliated with this project.
 
-</div>
+Treat any repository, release, fork, or message originating from the old account as unofficial. For the same reason, the Telegram group `@goldsvetcasino1` is no longer associated with us — the only official group is **[@osscasino](https://t.me/osscasino)**, and the only official repository is this one.
 
----
+## About this repository
 
-> [!WARNING]
-> **Beware of impersonators.** Any fork, mirror, or Telegram account claiming to represent us — other than [@osscasino](https://t.me/osscasino) — is **not official**. The old group `@goldsvetcasino1` is no longer affiliated with this project. Always verify you are dealing with the official account before sending any payment.
+This repository contains a public preview of the platform: the Laravel entry point, the admin panel, the frontend themes, and the server configuration files.
 
-## 📋 Table of Contents
+The complete source distribution — approximately 1,200+ games totaling 50+ GB, including the latest Pragmatic Play titles and PG Soft games (fixed and mobile-responsive) — is distributed directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
 
-- [About This Repository](#-about-this-repository)
-- [Highlights](#-highlights)
-- [Tech Stack](#-tech-stack)
-- [Server Requirements](#-server-requirements)
-- [Installation](#-installation)
-  - [Quick Installer](#quick-installer-recommended)
-  - [Manual Installation](#manual-installation)
-- [SSL Configuration](#-ssl-configuration)
-- [WebSocket Configuration](#-websocket-configuration)
-- [Process Management (PM2)](#-process-management-pm2)
-- [Firewall Configuration](#%EF%B8%8F-firewall-configuration)
-- [Support & Contact](#-support--contact)
-- [Disclaimer](#%EF%B8%8F-disclaimer)
+Repository layout:
 
-## 📖 About This Repository
+- `index.php` — Laravel application entry point
+- `back/` — admin panel (based on AdminLTE)
+- `frontend/` — frontend themes (`Default`, `Tropicoblack`, legacy)
+- `storage/` — tournaments and application storage
+- `socket_config.json`, `socket_config2.json`, `arcade_config.json` — WebSocket and arcade server configuration
+- `.htaccess` — Apache rewrite rules
 
-This repository contains a **public preview** of the OSS Casino platform (formerly Goldsvet) — a full-featured web casino solution built on Laravel with a Node.js real-time game server.
+## Requirements
 
-The complete source distribution includes **1,200+ games (50+ GB)** — among others the latest **Pragmatic Play** titles and **PG Soft** games (fixed and mobile-responsive) — and is distributed directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
+- AlmaLinux 8 or CentOS 7 (recommended)
+- Apache with `mod_rewrite`, SSL enforced on the domain
+- PHP 8.3 or newer, with the `fileinfo`, `imagick`, and `redis` extensions
+- MySQL 8.0 or newer
+- Redis
+- Node.js 22 and PM2 (`npm install -g pm2`)
+- Composer
 
-| Path | Description |
-| --- | --- |
-| `index.php` | Laravel application entry point |
-| `back/` | Admin panel (based on AdminLTE) |
-| `frontend/` | Frontend themes (`Default`, `Tropicoblack`, legacy) |
-| `storage/` | Tournaments and application storage |
-| `socket_config.json`, `socket_config2.json`, `arcade_config.json` | WebSocket / arcade server configuration |
-| `.htaccess` | Apache rewrite rules |
+## Installation
 
-## ✨ Highlights
+### Quick installer
 
-- **1,200+ games** — Pragmatic Play, PG Soft (fixed & mobile responsive), EGT, KA, and more
-- **Laravel 12** backend with a merged **single database**
-- **Node.js WebSocket game server** (PM2-managed) for real-time game sessions
-- **Multiple frontend themes** out of the box
-- **Demo user accounts** with demo play mode
-- **Quick installer** (`setup.php`) for guided setup
-- **Easy-Installer & PHP 8.3+ support** in the 3.0 (2026) release
+Upload or clone all files from this repository into your `public_html` folder, then open `https://yourdomain.com/setup.php` and follow the guided installation.
 
-## 🧱 Tech Stack
+### Manual installation
 
-| Component | Technology |
-| --- | --- |
-| Backend framework | Laravel 12 (PHP 8.3+) |
-| Real-time game server | Node.js 22 + PM2 (`UnifiedServer.js`) |
-| Database | MySQL |
-| Cache / queues | Redis |
-| Web server | Apache |
-| Recommended OS | AlmaLinux 8 / CentOS 7 |
+1. Provision the server with the components listed under [Requirements](#requirements).
 
-## 📦 Server Requirements
+2. Point your domain to the server and enforce SSL.
 
-| Requirement | Notes |
-| --- | --- |
-| Operating system | AlmaLinux 8 or CentOS 7 (recommended) |
-| Web server | Apache with `mod_rewrite`, SSL enforced |
-| PHP | 8.3 or newer |
-| PHP extensions | `fileinfo`, `imagick`, `redis` |
-| Database | MySQL 8.0+ (or compatible MariaDB) |
-| Node.js | 22.x |
-| Process manager | PM2 (`npm install -g pm2`) |
-| Cache | Redis |
+3. Clone or extract this repository into the domain's `public_html` folder.
 
-## 🚀 Installation
+4. Create a MySQL database and user, grant the user full access, and import the SQL dump `db.sql` from the distribution package.
 
-### Quick Installer (recommended)
-
-1. Upload or clone all files from this repository into your `public_html` folder.
-2. Navigate to `https://yourdomain.com/setup.php` and follow the guided installation.
-
-### Manual Installation
-
-1. **Provision the server** with the components listed under [Server Requirements](#-server-requirements).
-
-2. **Enable the required PHP extensions:** `fileinfo`, `imagick`, `redis`.
-
-3. **Configure your domain** and enforce SSL for it.
-
-4. **Deploy the code** — clone or extract this repository into the `public_html` folder of your domain.
-
-5. **Create the database:**
-   - Create a new MySQL database and user, and grant the user full access to it.
-   - Import the SQL dump `db.sql` from the distribution package.
-
-6. **Install Composer dependencies** — run the following from the terminal inside `public_html`:
+5. Install Composer dependencies from the terminal inside `public_html`:
 
    ```bash
    composer install
    ```
 
-7. **Configure the application:**
-   - Set your domain, database credentials, and mail settings (create a mailbox for the system and set its password) in `.env` and `config/app.php` (URL, around line 65).
+6. Set your domain, database credentials, and mail settings (create a mailbox for the system and set its password) in `.env` and `config/app.php` (URL, around line 65).
 
-8. **Secure demo accounts (important):** the distribution ships with demo user accounts. Generate new password hashes for existing users and update them — you can create bcrypt hashes at [bcrypt-generator.com](https://bcrypt-generator.com/) and apply them via phpMyAdmin.
+7. Generate new password hashes for the bundled demo user accounts — you can create bcrypt hashes at [bcrypt-generator.com](https://bcrypt-generator.com/) and apply them via phpMyAdmin. Do not go live with the default passwords.
 
-## 🔒 SSL Configuration
+## SSL configuration
 
-The WebSocket server requires a valid SSL certificate (Let's Encrypt or commercial — self-signed certificates will not work reliably):
+The WebSocket server requires a valid SSL certificate. Self-signed certificates will not work reliably.
 
 1. Delete any existing self-signed certificates.
-2. Issue or install a Let's Encrypt certificate for your domain.
-3. Save the certificate files as plain text:
-   - Certificate (CRT) → `crt.crt`
-   - Private key (KEY) → `key.key`
+2. Issue a Let's Encrypt certificate (or install a commercial one) for your domain.
+3. Save the certificate files as plain text: certificate (CRT) as `crt.crt`, private key (KEY) as `key.key`.
 4. Copy both files into the `PTWebSocket/ssl/` folder, replacing the existing ones.
 
-## 📡 WebSocket Configuration
+## WebSocket configuration
 
-WebSocket and arcade server settings live in the JSON files in the repository root:
+WebSocket and arcade server settings live in the JSON files in the repository root: `socket_config.json` (main slot server), `socket_config2.json` (secondary server), and `arcade_config.json` (arcade games, also sets the timezone). Adjust `port`, `host`, and `host_ws` to match your domain and chosen WebSocket ports.
 
-| File | Purpose |
-| --- | --- |
-| `socket_config.json` | Main slot game WebSocket server |
-| `socket_config2.json` | Secondary WebSocket server |
-| `arcade_config.json` | Arcade game server (also sets the timezone) |
-
-Example (`socket_config.json`):
+Example:
 
 ```json
 {
@@ -158,11 +90,9 @@ Example (`socket_config.json`):
 }
 ```
 
-Adjust `port`, `host`, and `host_ws` to match your domain and chosen WebSocket ports.
+## Process management
 
-## 🔄 Process Management (PM2)
-
-General PM2 commands (see the [PM2 documentation](https://pm2.keymetrics.io/docs/usage/quick-start/) for the full reference):
+General PM2 commands — see the [PM2 documentation](https://pm2.keymetrics.io/docs/usage/quick-start/) for the full reference:
 
 ```bash
 pm2 stop all
@@ -178,7 +108,7 @@ Start the game server from inside the `PTWebSocket` folder:
 pm2 start UnifiedServer.js --watch
 ```
 
-## 🛡️ Firewall Configuration
+## Firewall
 
 Open the ports used by your WebSocket servers, then reload the firewall:
 
@@ -189,23 +119,13 @@ firewall-cmd --zone=public --add-port=zzzz/tcp --permanent
 firewall-cmd --reload
 ```
 
-## 📞 Support & Contact
+## Support
 
-Interested in the full version, or need installation on your VPS / dedicated server?
+For the full version, or for installation on your VPS or dedicated server:
 
-| Channel | Link |
-| --- | --- |
-| Telegram Group (official) | [t.me/osscasino](https://t.me/osscasino) |
-| Personal Telegram (sales & installation) | [t.me/chessmate77](https://t.me/chessmate77) |
+- Telegram group: [t.me/osscasino](https://t.me/osscasino)
+- Sales and installation: [t.me/chessmate77](https://t.me/chessmate77)
 
-## ⚖️ Disclaimer
+## Disclaimer
 
-This software is provided for informational and educational purposes as a platform preview. Operating an online gambling service is heavily regulated and may be restricted or prohibited in your jurisdiction. Anyone deploying this software is solely responsible for obtaining the required licenses and complying with all applicable local, national, and international laws. The authors accept no liability for misuse of this software.
-
----
-
-<div align="center">
-
-<sub>© 2026 OSS Casino — formerly Goldsvet. All rights reserved.</sub>
-
-</div>
+This software is provided as a platform preview. Operating an online gambling service is heavily regulated and may be restricted or prohibited in your jurisdiction. Anyone deploying this software is solely responsible for obtaining the required licenses and complying with all applicable laws. The authors accept no liability for misuse.
