@@ -12,7 +12,7 @@
 
 **Web casino platform — formerly Goldsvet.**
 
-This is the official repository. Release 3.0 (2026) runs on Laravel 12 with PHP 8.4, ships a quick installer, a merged single database, demo play accounts, and more than 1,300 games.
+This is the official repository. Release 3.0 (2026) is a complete iGaming platform on Laravel 12 and a Node.js real-time game server: multi-brand operation out of the box, an integrated agent network with tiered commissions, payment gateways including crypto, player retention tools — bonuses, VIP progress, tournaments — and a catalog of 1,300+ games from 20+ providers.
 
 <p align="center"><img src="banner.png" alt="OSS Casino 2026" width="480"></p>
 
