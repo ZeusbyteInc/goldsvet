@@ -1,5 +1,8 @@
 # OSS Casino 2026
 
+[![build](https://img.shields.io/github/actions/workflow/status/ZeusbyteInc/goldsvet/build.yml?style=for-the-badge)](https://github.com/ZeusbyteInc/goldsvet/actions/workflows/build.yml)
+[![written by humans](https://img.shields.io/badge/written_by_humans-not_ai-blue?style=for-the-badge)](https://github.com/ZeusbyteInc/goldsvet/commits/main/)
+
 **Web casino platform — formerly Goldsvet.**
 
 This is the official repository. Release 3.0 (2026) runs on Laravel 12 with PHP 8.4, ships a quick installer, a merged single database, demo play accounts, and more than 1,300 games.
