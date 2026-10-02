@@ -48,6 +48,8 @@ Only the GitHub account has changed. The official Telegram channel **[t.me/golds
 
 This repository is a curated public preview of the platform: a selection of real source files from the current production codebase, published so you can verify the quality and architecture for yourself. The full distribution — more than 1,300 games totaling over 60 GB, listed title by title in the [complete game catalog](docs/GAMES.md) generated from the platform database — is available directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
 
+For agent management and provider content aggregation, the ecosystem ships a companion panel: **[FiversCan](https://github.com/ZeusbyteInc/fiverscan)** — a Node.js agent panel with real-time balance and transaction feeds.
+
 **What this preview includes**
 
 - `composer.json` · `package.json` — the real dependency manifests of the platform
