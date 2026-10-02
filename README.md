@@ -84,7 +84,7 @@ php artisan serve
 
 ## License
 
-Copyright © 2026 ChessMate Inc. All rights reserved.
+Copyright © 2026 Zeusbyte Inc. All rights reserved.
 
 This repository contains **original code developed independently**; it is not derived from any third-party product. Intended for legitimate, licensed use cases only.
 
@@ -92,6 +92,7 @@ This repository contains **original code developed independently**; it is not de
 
 <div align="center">
 
-**ChessMate Inc.** · [ZeusbyteInc](https://github.com/ZeusbyteInc) - infrastructure & platform engineering
+**Zeusbyte Inc.** — [github.com/ZeusbyteInc](https://github.com/ZeusbyteInc)
 
 </div>
+pe
