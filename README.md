@@ -12,14 +12,14 @@
 
 **Web casino platform — formerly Goldsvet.**
 
-This is the official repository. Release 3.0 (2026) is a complete iGaming platform on Laravel 12 and a Node.js real-time game server: multi-brand operation out of the box, an integrated agent network with tiered commissions, payment gateways including crypto, player retention tools — bonuses, VIP progress, tournaments — and a catalog of 1,300+ games from 20+ providers.
+This is the official repository. Release 3.0 (2026) is a complete iGaming platform on Laravel 12 and a Node.js real-time game server: multi-brand operation out of the box, an integrated agent network with tiered commissions, payment gateways including crypto, player retention tools — bonuses, VIP progress, tournaments — and a catalog of 1,800+ games from 20+ providers, led by the full Pragmatic Play lineup.
 
 <p align="center"><img src="banner.png" alt="OSS Casino 2026" width="480"></p>
 
 | | |
 | --- | --- |
 | **Release** | 3.0 — 2026 |
-| **Games** | 1,300+ titles · 60 GB+ |
+| **Games** | 1,800+ titles · 55 GB+ |
 | **Providers** | Pragmatic Play · PG Soft · EGT · KA · NetGame · and more |
 | **Channel** | [t.me/goldsvet1](https://t.me/goldsvet1) |
 
@@ -46,7 +46,7 @@ Only the GitHub account has changed. The official Telegram channel **[t.me/golds
 
 ## Overview
 
-This repository is a curated public preview of the platform: a selection of real source files from the current production codebase, published so you can verify the quality and architecture for yourself. The full distribution — more than 1,300 games totaling over 60 GB, listed title by title in the [complete game catalog](docs/GAMES.md) generated from the platform database — is available directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
+This repository is a curated public preview of the platform: a selection of real source files from the current production codebase, published so you can verify the quality and architecture for yourself. The full distribution — more than 1,800 games totaling over 55 GB, listed title by title in the [complete game catalog](docs/GAMES.md) generated from the platform database — is available directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
 
 For agent management and provider content aggregation, the ecosystem ships a companion panel: **[FiversCan](https://github.com/ZeusbyteInc/fiverscan)** — a Node.js agent panel with real-time balance and transaction feeds.
 
