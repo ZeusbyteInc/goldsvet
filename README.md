@@ -8,9 +8,9 @@ Official community on Telegram: **[@osscasino](https://t.me/osscasino)**
 
 ## Old repository and account
 
-The project was previously distributed under the `github.com/zeusbyte` account at `github.com/zeusbyte/goldsvet`. Following the departure of former team members, that account and its repositories are **no longer controlled or maintained by the current development team** and are not affiliated with this project.
+The project was previously distributed under the `github.com/zeusbyte` account at `github.com/zeusbyte/goldsvet`. Following the departure of former team members, that account and its repositories are **no longer controlled or maintained by the current development team** and are not affiliated with this project. Treat any repository, release, or fork originating from the old account as unofficial — this repository is the only official one.
 
-Treat any repository, release, fork, or message originating from the old account as unofficial. For the same reason, the Telegram group `@goldsvetcasino1` is no longer associated with us — the only official group is **[@osscasino](https://t.me/osscasino)**, and the only official repository is this one.
+Only the GitHub account has changed. The official Telegram channel and group, **[@osscasino](https://t.me/osscasino)**, remain exactly as before and are unaffected by the move — anything else claiming to represent us on Telegram, including the old `@goldsvetcasino1` group, is not official.
 
 ## About this repository
 
