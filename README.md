@@ -2,7 +2,7 @@
 
 ![OSS Casino](slot.png)
 
-Web casino platform, formerly known as **Goldsvet**. This repository is the official distribution point of the project. Release 3.0 (2026) adds Laravel 12 and PHP 8.3+ support, a quick installer, a merged single database, and demo play accounts — shipping with 1,200+ games.
+Web casino platform, formerly known as **Goldsvet**. This repository is the official distribution point of the project. Release 3.0 (2026) runs on Laravel 12 with PHP 8.4, a quick installer, a merged single database, and demo play accounts — shipping with 1,200+ games.
 
 Official community on Telegram: **[@osscasino](https://t.me/osscasino)**
 
@@ -27,11 +27,18 @@ Repository layout:
 - `socket_config.json`, `socket_config2.json`, `arcade_config.json` — WebSocket and arcade server configuration
 - `.htaccess` — Apache rewrite rules
 
+## Tech stack
+
+- **Backend:** Laravel 12 on PHP 8.4 — Sanctum authentication, Stripe payments, Google 2FA, GeoIP, Spatie DB dumper
+- **Frontend:** Inertia.js with Vue 3, Tailwind CSS, Alpine.js, Chart.js, built with Vite
+- **Real-time game server:** Node.js (`UnifiedServer.js`) with ws and Socket.IO, direct MySQL and Redis access, Winston logging, managed with PM2
+- **Data:** MySQL 8, Redis
+
 ## Requirements
 
 - AlmaLinux 8 or CentOS 7 (recommended)
 - Apache with `mod_rewrite`, SSL enforced on the domain
-- PHP 8.3 or newer, with the `fileinfo`, `imagick`, and `redis` extensions
+- PHP 8.4 or newer, with the `fileinfo`, `imagick`, and `redis` extensions
 - MySQL 8.0 or newer
 - Redis
 - Node.js 22 and PM2 (`npm install -g pm2`)
