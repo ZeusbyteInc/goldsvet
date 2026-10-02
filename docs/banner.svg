@@ -1,0 +1,28 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Goldsvet - Gaming Platform Framework">
+    <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="300" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#0F0F23"/>
+                  <stop offset="0.6" stop-color="#1E1C35"/>
+                  <stop offset="1" stop-color="#0F0F23"/>
+          </linearGradient>
+          <linearGradient id="accent" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#7C3AED"/>
+                  <stop offset="0.5" stop-color="#A78BFA"/>
+                  <stop offset="1" stop-color="#F43F5E"/>
+          </linearGradient>
+          <linearGradient id="title" x1="330" y1="0" x2="870" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#FFFFFF"/>
+                  <stop offset="0.55" stop-color="#E9D5FF"/>
+                  <stop offset="1" stop-color="#FDA4AF"/>
+          </linearGradient>
+    </defs>
+    <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+    <rect x="0" y="284" width="1200" height="16" fill="url(#accent)"/>
+    <rect x="470" y="96" width="260" height="4" rx="2" fill="url(#accent)"/>
+    <text x="600" y="170" text-anchor="middle" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="72" font-weight="900" letter-spacing="14" fill="url(#title)">GOLDSVET</text>
+    <text x="600" y="216" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="500" letter-spacing="3" fill="#94A3B8">GAMING PLATFORM &amp; LOBBY ENGINE FRAMEWORK</text>
+    <circle cx="132" cy="150" r="7" fill="#7C3AED"/>
+    <circle cx="1068" cy="150" r="7" fill="#F43F5E"/>
+    <rect x="160" y="146" width="180" height="2" fill="#4C1D95"/>
+    <rect x="860" y="146" width="180" height="2" fill="#4C1D95"/>
+</svg>
