@@ -14,7 +14,7 @@
 
 This is the official repository. Release 3.0 (2026) runs on Laravel 12 with PHP 8.4, ships a quick installer, a merged single database, demo play accounts, and more than 1,300 games.
 
-<p align="center"><img src="banner.png" alt="OSS Casino 2026"></p>
+<p align="center"><img src="banner.png" alt="OSS Casino 2026" width="640"></p>
 
 | | |
 | --- | --- |
