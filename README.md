@@ -4,13 +4,13 @@
 
 Web casino platform, formerly known as **Goldsvet**. This repository is the official distribution point of the project. Release 3.0 (2026) runs on Laravel 12 with PHP 8.4, a quick installer, a merged single database, and demo play accounts — shipping with more than 1,300 games.
 
-Official community on Telegram: **[@osscasino](https://t.me/osscasino)**
+Official Telegram channel: **[t.me/goldsvet1](https://t.me/goldsvet1)** (10,000+ subscribers) — official group: **[@osscasino](https://t.me/osscasino)**
 
 ## Old repository and account
 
 The project was previously distributed under the `github.com/zeusbyte` account at `github.com/zeusbyte/goldsvet`. Following the departure of former team members, that account and its repositories are **no longer controlled or maintained by the current development team** and are not affiliated with this project. Treat any repository, release, or fork originating from the old account as unofficial — this repository is the only official one.
 
-Only the GitHub account has changed. The official Telegram channel and group, **[@osscasino](https://t.me/osscasino)**, remain exactly as before and are unaffected by the move — anything else claiming to represent us on Telegram, including the old `@goldsvetcasino1` group, is not official.
+Only the GitHub account has changed. The official Telegram channel and group, **[t.me/goldsvet1](https://t.me/goldsvet1)** and **[@osscasino](https://t.me/osscasino)**, remain exactly as before and are unaffected by the move — anything else claiming to represent us on Telegram, including the old ~~@goldsvetcasino1~~ group, is not official.
 
 ## About this repository
 
@@ -128,10 +128,11 @@ firewall-cmd --reload
 
 ## Support
 
-For the full version, or for installation on your VPS or dedicated server:
+For the full version, or for installation on your VPS or dedicated server — the fastest way to get in touch is directly with the developer:
 
+- **Developer contact: [t.me/chessmate77](https://t.me/chessmate77)** — fastest response, sales, and installation
+- Telegram channel: [t.me/goldsvet1](https://t.me/goldsvet1) — 10,000+ subscribers
 - Telegram group: [t.me/osscasino](https://t.me/osscasino)
-- Sales and installation: [t.me/chessmate77](https://t.me/chessmate77)
 
 ## Disclaimer
 
