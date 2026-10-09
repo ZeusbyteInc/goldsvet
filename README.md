@@ -94,10 +94,10 @@ flowchart LR
     subgraph realtime["⚡ Realtime tier — PTWebSocket"]
         direction TB
         UNI["UnifiedServer.js<br>Node.js 22 · PM2 fork<br>one process, four servers"]
-        SLOT["SlotsServer<br>:22154/slots"]
-        ARC["ArcadeServer<br>:22188/arcade"]
+        SLOT["SlotsServer<br>:24518/slots"]
+        ARC["ArcadeServer<br>:23746/arcade"]
         BIN["BinaryServer<br>binary game protocol"]
-        ISC["InternalSocketServer<br>:3001 · shared-secret auth"]
+        ISC["InternalSocketServer<br>:31094 · shared-secret auth"]
         KERNEL["NullEngine<br>local math kernel"]
         UNI --> SLOT
         UNI --> ARC
@@ -128,7 +128,7 @@ flowchart LR
     PHP <--> RD
     UNI <--> MY
     UNI <--> RD
-    PHP <-.->|internal socket :3001| ISC
+    PHP <-.->|internal socket :31094| ISC
     PHP --> PAY
 ```
 
@@ -138,10 +138,10 @@ flowchart LR
 sequenceDiagram
     autonumber
     participant P as Player — browser
-    participant S as SlotsServer :22154
+    participant S as SlotsServer :24518
     participant K as NullEngine
     participant D as MySQL · Redis
-    participant L as Laravel — internal socket :3001
+    participant L as Laravel — internal socket :31094
 
     P->>S: WSS connect · auth token
     S->>D: load player session, balance, game config
@@ -161,9 +161,9 @@ sequenceDiagram
 | Web application | `app/` — namespace `VanguardLTE\` | SPA backend: auth, wallet, admin, agent network |
 | Multi-brand core | `app/Shop.php`, `app/Category.php` | every shop is an isolated brand with its own users, games and balances |
 | Game server entry | `PTWebSocket/src/UnifiedServer.js` | boots Slots, Arcade, Binary and Internal servers in one PM2 process |
-| Slots endpoint | `socket_config.json` | `:22154/slots` — main slot-machine traffic |
-| Arcade endpoint | `arcade_config.json` | `:22188/arcade` — arcade games and platform timezone |
-| Internal bridge | `PTWebSocket/ecosystem.config.js` | `:3001` Socket.IO channel guarded by a shared secret |
+| Slots endpoint | `socket_config.json` | `:24518/slots` — main slot-machine traffic |
+| Arcade endpoint | `arcade_config.json` | `:23746/arcade` — arcade games and platform timezone |
+| Internal bridge | `PTWebSocket/ecosystem.config.js` | `:31094` Socket.IO channel guarded by a shared secret |
 | Retention tools | `app/HappyHour.php` | happy hours, bonuses, VIP and tournament progress |
 | Round statistics | `app/StatGame.php` | per-round stats feeding the admin dashboards |
 | Game catalog | `docs/GAMES.md` | generated index of the full 1,800+ title distribution |
