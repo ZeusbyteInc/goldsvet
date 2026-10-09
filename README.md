@@ -73,33 +73,107 @@ For agent management and provider content aggregation, the ecosystem ships a com
 
 ## Architecture
 
+The platform runs as two cooperating processes — a **Laravel web application** and a **Node.js real-time game server** — sharing one MySQL database and Redis store. Laravel owns authentication, the wallet, payments and the admin/agent back office; the Node server owns every live game session over encrypted WebSockets. The two talk through an authenticated internal Socket.IO bridge.
+
+### System overview
+
 ```mermaid
-flowchart TB
-    subgraph client["Client"]
-        B["Browser<br>Inertia.js / Vue 3 SPA — lobby, wallet, admin"]
-        G["Game canvas / iframe"]
+flowchart LR
+    subgraph client["🖥 Client — Browser"]
+        direction TB
+        SPA["Lobby · Wallet · Admin<br>Inertia.js + Vue 3 SPA"]
+        H5["H5 game client<br>Socket.IO over wss"]
     end
 
-    subgraph app["Application server"]
-        A["Apache<br>SSL, mod_rewrite"]
-        L["Laravel 12 · PHP 8.4<br>Sanctum auth, Stripe, Google 2FA"]
-        N["PTWebSocket — Node.js 22, PM2<br>Slots, Arcade, Binary servers<br>Socket.IO + NullEngine (local math kernel)"]
+    subgraph web["🌐 Web tier"]
+        direction TB
+        TLS["Apache<br>TLS · mod_rewrite"]
+        PHP["Laravel 12 · PHP 8.4<br>Sanctum auth · Stripe · Google 2FA<br>agent network · multi-brand shops"]
     end
 
-    DB[("MySQL 8")]
-    R[("Redis")]
+    subgraph realtime["⚡ Realtime tier — PTWebSocket"]
+        direction TB
+        UNI["UnifiedServer.js<br>Node.js 22 · PM2 fork<br>one process, four servers"]
+        SLOT["SlotsServer<br>:22154/slots"]
+        ARC["ArcadeServer<br>:22188/arcade"]
+        BIN["BinaryServer<br>binary game protocol"]
+        ISC["InternalSocketServer<br>:3001 · shared-secret auth"]
+        KERNEL["NullEngine<br>local math kernel"]
+        UNI --> SLOT
+        UNI --> ARC
+        UNI --> BIN
+        UNI --> ISC
+        SLOT -.-> KERNEL
+        ARC -.-> KERNEL
+    end
 
-    B -->|HTTPS| A
-    A --> L
-    G -->|WSS| N
-    L <--> DB
-    L <--> R
-    N <--> DB
-    N <--> R
-    L -.->|internal socket| N
+    subgraph data["🗄 Data tier"]
+        direction TB
+        MY[("MySQL 8<br>players · balances · rounds · stats")]
+        RD[("Redis<br>cache · sessions · queues")]
+    end
+
+    subgraph ext["🔌 External"]
+        direction TB
+        PRV["Game providers<br>Pragmatic Play · PG Soft · EGT · …"]
+        PAY["Payments<br>Stripe · crypto gateways"]
+    end
+
+    SPA -->|HTTPS| TLS
+    TLS --> PHP
+    H5 -->|WSS| SLOT
+    H5 -->|WSS| ARC
+    H5 -.->|game assets / API| PRV
+    PHP <--> MY
+    PHP <--> RD
+    UNI <--> MY
+    UNI <--> RD
+    PHP <-.->|internal socket :3001| ISC
+    PHP --> PAY
 ```
 
-The web application and the real-time game server are separate processes: Laravel serves the SPA and handles authentication, payments, and administration, while the Node.js server runs every live game session over an encrypted WebSocket. Both share the same MySQL database and Redis caches, and Laravel coordinates the game server through an authenticated internal socket.
+### Lifecycle of a spin
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant P as Player — browser
+    participant S as SlotsServer :22154
+    participant K as NullEngine
+    participant D as MySQL · Redis
+    participant L as Laravel — internal socket :3001
+
+    P->>S: WSS connect · auth token
+    S->>D: load player session, balance, game config
+    P->>S: spin request — bet, lines
+    S->>K: evaluate RNG against paytable
+    K-->>S: reel outcome · win lines · payout
+    S->>D: write game round · update balance atomically
+    S-->>P: emit reels, wins, new balance
+    S->>L: ledger event over internal socket
+    L->>D: transactions · StatGame records · bonus progress
+```
+
+### Component map
+
+| Component | Path | Role |
+| --- | --- | --- |
+| Web application | `app/` — namespace `VanguardLTE\` | SPA backend: auth, wallet, admin, agent network |
+| Multi-brand core | `app/Shop.php`, `app/Category.php` | every shop is an isolated brand with its own users, games and balances |
+| Game server entry | `PTWebSocket/src/UnifiedServer.js` | boots Slots, Arcade, Binary and Internal servers in one PM2 process |
+| Slots endpoint | `socket_config.json` | `:22154/slots` — main slot-machine traffic |
+| Arcade endpoint | `arcade_config.json` | `:22188/arcade` — arcade games and platform timezone |
+| Internal bridge | `PTWebSocket/ecosystem.config.js` | `:3001` Socket.IO channel guarded by a shared secret |
+| Retention tools | `app/HappyHour.php` | happy hours, bonuses, VIP and tournament progress |
+| Round statistics | `app/StatGame.php` | per-round stats feeding the admin dashboards |
+| Game catalog | `docs/GAMES.md` | generated index of the full 1,800+ title distribution |
+
+### Operational notes
+
+- **Single supervised process** — PM2 runs `oss-casino-websocket` in fork mode and restarts it on crash. A guard inside `UnifiedServer.js` suppresses the benign engine.io `ERR_HTTP_HEADERS_SENT` disconnect error so one dropping client never kills every live session.
+- **Resilient config loading** — a `readFileSync` wrapper falls back to safe defaults (`{}` / `''`) if a JSON or text asset goes missing instead of taking the game floor down.
+- **TLS everywhere** — all realtime traffic rides `wss://`; certificates live in `PTWebSocket/ssl/` (`crt.crt`, `key.key`).
+- **Observability** — Winston logging on the game server, Chart.js dashboards on the admin side, database backups through `spatie/db-dumper`.
 
 ---
 
