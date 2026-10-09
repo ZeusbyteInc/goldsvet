@@ -1,97 +1,213 @@
-<div align="center">
+# OSS Casino 2026
 
-<img src="docs/banner.svg?v=3" alt="Goldsvet - Slots Platform Framework by Zeusbyte Inc." width="100%">
+[![build](https://img.shields.io/github/actions/workflow/status/ZeusbyteInc/goldsvet/build.yml?style=for-the-badge)](https://github.com/ZeusbyteInc/goldsvet/actions/workflows/build.yml)
+[![written by humans](https://img.shields.io/badge/written_by_humans-not_ai-blue?style=for-the-badge)](https://github.com/ZeusbyteInc/goldsvet/commits/main/)
 
-**A modular, API-first slots platform framework.**
+[![PHP](https://img.shields.io/badge/PHP-8.4%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Vue](https://img.shields.io/badge/Vue-3-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org)
+[![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
+[![Redis](https://img.shields.io/badge/Redis-cache%20%2B%20queues-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
+[![License](https://img.shields.io/badge/license-proprietary-8B8B8B?style=for-the-badge)](#disclaimer)
 
-[![Status](https://img.shields.io/badge/status-in%20development-7C3AED?style=flat-square)](#roadmap)
-[![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=flat-square&logo=php&logoColor=white)](https://www.php.net)
-[![Laravel](https://img.shields.io/badge/Laravel-11%2B-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
-[![Vue](https://img.shields.io/badge/Vue-3-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)](https://vuejs.org)
-[![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://www.mysql.com)
-[![Redis](https://img.shields.io/badge/Redis-cache%20%2B%20queue-DC382D?style=flat-square&logo=redis&logoColor=white)](https://redis.io)
-[![License](https://img.shields.io/badge/license-proprietary-F43F5E?style=flat-square)](#license)
+**Web casino platform — formerly Goldsvet.**
 
-</div>
+This is the official repository. Release 3.0 (2026) is a complete iGaming platform on Laravel 12 and a Node.js real-time game server: multi-brand operation out of the box, an integrated agent network with tiered commissions, payment gateways including crypto, player retention tools — bonuses, VIP progress, tournaments — and a catalog of 1,800+ games from 20+ providers, led by the full Pragmatic Play lineup.
+
+<p align="center"><img src="banner.png" alt="OSS Casino 2026" width="480"></p>
+
+| | |
+| --- | --- |
+| **Release** | 3.0 — 2026 |
+| **Games** | 1,800+ titles · 55 GB+ |
+| **Providers** | Pragmatic Play · PG Soft · EGT · KA · NetGame · and more |
+| **Channel** | [t.me/goldsvet1](https://t.me/goldsvet1) |
+
+---
+
+## Official channels
+
+| Channel | Link |
+| --- | --- |
+| Telegram channel | [t.me/goldsvet1](https://t.me/goldsvet1) |
+| Telegram group | [t.me/osscasino](https://t.me/osscasino) |
+| Developer — fastest response | [t.me/chessmate77](https://t.me/chessmate77) |
+
+---
+
+## Old repository and account
+
+> [!WARNING]
+> The project was previously distributed at `github.com/zeusbyte/goldsvet` under the `github.com/zeusbyte` account. That account and its repositories are **no longer controlled or maintained by the current development team** following the departure of former team members. Treat anything originating from the old account as unofficial — this repository is the only official source.
+
+Only the GitHub account has changed. The official Telegram channel **[t.me/goldsvet1](https://t.me/goldsvet1)** and group **[@osscasino](https://t.me/osscasino)** remain exactly as before and are unaffected by the move — anything else claiming to represent us on Telegram, including the old ~~@goldsvetcasino1~~ group, is not official.
 
 ---
 
 ## Overview
 
-Goldsvet provides the backbone every slots platform needs - lobby, accounts, wallet, and administration - as clean, swappable modules so operators and development teams can focus on the games, not the plumbing.
+This repository is a curated public preview of the platform: a selection of real source files from the current production codebase, published so you can verify the quality and architecture for yourself. The full distribution — more than 1,800 games totaling over 55 GB, listed title by title in the [complete game catalog](docs/GAMES.md) generated from the platform database — is available directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
 
-- **API-first** - every capability is exposed over a versioned REST API
-- **Modular** - enable only the modules you need; no monolith lock-in
-- **Provider-agnostic** - the wallet and lobby layers integrate with any game source
-- **Operations-ready** - queues, caching, and reporting wired in from day one
+For agent management and provider content aggregation, the ecosystem ships a companion panel: **[FiversCan](https://github.com/ZeusbyteInc/fiverscan)** — a Node.js agent panel with real-time balance and transaction feeds.
 
-## Feature Modules
+**What this preview includes**
 
-| Module | What it does |
-|--------|--------------|
-| **Lobby Engine** | Configurable slots lobby with categories, search, and featured placements |
-| **Player Accounts** | Registration, authentication, sessions, KYC-ready profile structure |
-| **Wallet & Transactions** | Provider-agnostic balance layer with full transaction ledger |
-| **Admin Panel** | Content, player, and configuration management with role-based access |
-| **Reporting** | Operational dashboards and exportable reports |
-| **REST API** | Consistent, versioned endpoints across all modules |
-
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                       Clients                           │
-│            Web (Vue 3)  ·  Mobile  ·  Partners          │
-└──────────────────────────┬──────────────────────────────┘
-                           │ REST API (versioned)
-┌──────────────────────────▼──────────────────────────────┐
-│                    API Gateway (Laravel)                │
-│         Auth · Rate limiting · Request validation       │
-├──────────────┬──────────────┬───────────────────────────┤
-│    Lobby     │    Wallet    │      Admin & Reporting    │
-│    Module    │    Module    │           Module          │
-├──────────────┴──────────────┴───────────────────────────┤
-│          MySQL 8 (state)      Redis (cache + queue)     │
-└─────────────────────────────────────────────────────────┘
-```
-
-## Quick Start
-
-> Documentation is being written as modules stabilize. The structure below reflects the target developer experience.
-
-```bash
-git clone https://github.com/ZeusbyteInc/goldsvet.git
-cd goldsvet
-cp .env.example .env
-
-composer install
-npm install && npm run build
-
-php artisan key:generate
-php artisan migrate --seed
-php artisan serve
-```
-
-## Roadmap
-
-- [x] Project architecture and module boundaries
-- [ ] Wallet core and transaction ledger
-- [ ] Lobby engine with category management
-- [ ] Admin panel MVP
-- [ ] Reporting dashboards
-- [ ] Public API documentation
-- [ ] Reference deployment guide
-
-## License
-
-Copyright © 2026 Zeusbyte Inc. All rights reserved.
-
-This repository contains **original code developed independently**; it is not derived from any third-party product. Intended for legitimate, licensed use cases only.
+- `composer.json` · `package.json` — the real dependency manifests of the platform
+- `app/` — production domain models (`Shop`, `StatGame`, `Category`, `HappyHour`)
+- `database/migrations/` — recent migrations from the live codebase
+- `PTWebSocket/` — the Node.js game server entry point (`src/UnifiedServer.js`), PM2 configuration, and dependencies
+- `docs/GAMES.md` — the full game catalog, 1,302 titles grouped by provider
+- `socket_config.json` · `socket_config2.json` · `arcade_config.json` — WebSocket and arcade server configuration
+- `index.php` · `.htaccess` · `storage/` — application entry point, Apache rules, and storage layout
 
 ---
 
-<div align="center">
+## Tech stack
 
-**Zeusbyte Inc.** — [github.com/ZeusbyteInc](https://github.com/ZeusbyteInc)
+| Layer | Technology |
+| --- | --- |
+| Backend | Laravel 12 on PHP 8.4 — Sanctum, Stripe, Google 2FA, GeoIP |
+| Frontend | Inertia.js with Vue 3, Tailwind CSS, Alpine.js, Chart.js — built with Vite |
+| Game server | Node.js (`UnifiedServer.js`) with ws and Socket.IO, direct MySQL and Redis access, Winston logging — managed with PM2 |
+| Data | MySQL 8, Redis |
 
-</div>
+## Architecture
+
+```mermaid
+flowchart TB
+    subgraph client["Client"]
+        B["Browser<br>Inertia.js / Vue 3 SPA — lobby, wallet, admin"]
+        G["Game canvas / iframe"]
+    end
+
+    subgraph app["Application server"]
+        A["Apache<br>SSL, mod_rewrite"]
+        L["Laravel 12 · PHP 8.4<br>Sanctum auth, Stripe, Google 2FA"]
+        N["PTWebSocket — Node.js 22, PM2<br>Slots, Arcade, Binary servers<br>Socket.IO + NullEngine (local math kernel)"]
+    end
+
+    DB[("MySQL 8")]
+    R[("Redis")]
+
+    B -->|HTTPS| A
+    A --> L
+    G -->|WSS| N
+    L <--> DB
+    L <--> R
+    N <--> DB
+    N <--> R
+    L -.->|internal socket| N
+```
+
+The web application and the real-time game server are separate processes: Laravel serves the SPA and handles authentication, payments, and administration, while the Node.js server runs every live game session over an encrypted WebSocket. Both share the same MySQL database and Redis caches, and Laravel coordinates the game server through an authenticated internal socket.
+
+---
+
+## Requirements
+
+- AlmaLinux 8 or CentOS 7 (recommended)
+- Apache with `mod_rewrite`, SSL enforced on the domain
+- PHP 8.4 or newer, with the `fileinfo`, `imagick`, and `redis` extensions
+- MySQL 8.0 or newer
+- Redis
+- Node.js 22 and PM2 (`npm install -g pm2`)
+- Composer
+
+---
+
+## Installation
+
+**Quick installer** — upload or clone all files into your `public_html` folder, then open `https://yourdomain.com/setup.php` and follow the guided installation.
+
+**Manual installation**
+
+1. Provision the server with the components listed under [Requirements](#requirements).
+2. Point your domain to the server and enforce SSL.
+3. Clone or extract this repository into the domain's `public_html` folder.
+4. Create a MySQL database and user, grant the user full access, and import the SQL dump `db.sql` from the distribution package.
+5. Install Composer dependencies from the terminal inside `public_html`:
+
+   ```bash
+   composer install
+   ```
+
+6. Set your domain, database credentials, and mail settings (create a mailbox for the system and set its password) in `.env` and `config/app.php` (URL, around line 65).
+7. Generate new password hashes for the bundled demo user accounts — create bcrypt hashes at [bcrypt-generator.com](https://bcrypt-generator.com/) and apply them via phpMyAdmin. Do not go live with the default passwords.
+
+---
+
+## SSL configuration
+
+The WebSocket server requires a valid SSL certificate. Self-signed certificates will not work reliably.
+
+1. Delete any existing self-signed certificates.
+2. Issue a Let's Encrypt certificate (or install a commercial one) for your domain.
+3. Save the certificate files as plain text: certificate (CRT) as `crt.crt`, private key (KEY) as `key.key`.
+4. Copy both files into the `PTWebSocket/ssl/` folder, replacing the existing ones.
+
+---
+
+## WebSocket configuration
+
+WebSocket and arcade server settings live in the JSON files in the repository root: `socket_config.json` (main slot server), `socket_config2.json` (secondary server), and `arcade_config.json` (arcade games, also sets the timezone). Adjust `port`, `host`, and `host_ws` to match your domain and chosen WebSocket ports.
+
+```json
+{
+  "port": "22188/arcade",
+  "host": "localhost",
+  "prefix": "https://",
+  "host_ws": "localhost",
+  "prefix_ws": "wss://",
+  "ssl": true,
+  "timezone": "Europe/Berlin"
+}
+```
+
+---
+
+## Process management
+
+General PM2 commands — see the [PM2 documentation](https://pm2.keymetrics.io/docs/usage/quick-start/) for the full reference:
+
+```bash
+pm2 stop all
+pm2 delete all
+pm2 flush
+pm2 logs
+pm2 save
+```
+
+Start the game server from inside the `PTWebSocket` folder:
+
+```bash
+pm2 start UnifiedServer.js --watch
+```
+
+---
+
+## Firewall
+
+Open the ports used by your WebSocket servers, then reload the firewall:
+
+```bash
+firewall-cmd --zone=public --add-port=xxxx/tcp --permanent
+firewall-cmd --zone=public --add-port=yyyy/tcp --permanent
+firewall-cmd --zone=public --add-port=zzzz/tcp --permanent
+firewall-cmd --reload
+```
+
+---
+
+## Support
+
+The fastest way to get in touch is directly with the developer — for the full version, or for installation on your VPS or dedicated server:
+
+- **Developer: [t.me/chessmate77](https://t.me/chessmate77)** — fastest response, sales, and installation
+- Channel: [t.me/goldsvet1](https://t.me/goldsvet1)
+- Group: [t.me/osscasino](https://t.me/osscasino)
+
+---
+
+## Disclaimer
+
+This software is provided as a platform preview. Operating an online gambling service is heavily regulated and may be restricted or prohibited in your jurisdiction. Anyone deploying this software is solely responsible for obtaining the required licenses and complying with all applicable laws. The authors accept no liability for misuse.
