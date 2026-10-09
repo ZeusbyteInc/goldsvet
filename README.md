@@ -38,9 +38,22 @@ Goldsvet provides the backbone every slots platform needs - lobby, accounts, wal
 
 ## Architecture
 
-<img src="docs/architecture.svg" alt="Goldsvet system architecture" width="100%">
-
-The platform is split into four application modules behind a single versioned API. All game content is consumed through **provider connectors** - one internal interface, one driver per vendor - so adding a provider never touches the wallet or lobby code. Every balance change goes through the double-entry ledger with idempotency keys; background work (settlements, exports, cache warm-up) runs on Horizon queue workers.
+```
+┌─────────────────────────────────────────────────────────┐
+│                       Clients                           │
+│            Web (Vue 3)  ·  Mobile  ·  Partners          │
+└──────────────────────────┬──────────────────────────────┘
+                           │ REST API (versioned)
+┌──────────────────────────▼──────────────────────────────┐
+│                    API Gateway (Laravel)                │
+│         Auth · Rate limiting · Request validation       │
+├──────────────┬──────────────┬───────────────────────────┤
+│    Lobby     │    Wallet    │      Admin & Reporting    │
+│    Module    │    Module    │           Module          │
+├──────────────┴──────────────┴───────────────────────────┤
+│          MySQL 8 (state)      Redis (cache + queue)     │
+└─────────────────────────────────────────────────────────┘
+```
 
 ## Quick Start
 
