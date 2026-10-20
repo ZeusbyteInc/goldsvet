@@ -1,5 +1,9 @@
 # OSS Casino 2026
 
+**iGaming / online-casino platform source code — formerly Goldsvet.** Complete turnkey casino software by [Zeusbyte Inc](https://github.com/ZeusbyteInc): game aggregation, agent network with tiered commissions, crypto payments, and 1,800+ games from 20+ providers led by the full Pragmatic Play lineup.
+
+Official: [zeusbyteinc.com](https://zeusbyteinc.com) · Telegram [t.me/goldsvet1](https://t.me/goldsvet1) · group [t.me/osscasino](https://t.me/osscasino)
+
 [![build](https://img.shields.io/github/actions/workflow/status/ZeusbyteInc/goldsvet/build.yml?style=for-the-badge)](https://github.com/ZeusbyteInc/goldsvet/actions/workflows/build.yml)
 [![written by humans](https://img.shields.io/badge/written_by_humans-not_ai-blue?style=for-the-badge)](https://github.com/ZeusbyteInc/goldsvet/commits/main/)
 
@@ -9,8 +13,6 @@
 [![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
 [![Redis](https://img.shields.io/badge/Redis-cache%20%2B%20queues-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
 [![License](https://img.shields.io/badge/license-proprietary-8B8B8B?style=for-the-badge)](#disclaimer)
-
-**Web casino platform — formerly Goldsvet.**
 
 This is the official repository. Release 3.0 (2026) is a complete iGaming platform on Laravel 12 and a Node.js real-time game server: multi-brand operation out of the box, an integrated agent network with tiered commissions, payment gateways including crypto, player retention tools — bonuses, VIP progress, tournaments — and a catalog of 1,800+ games from 20+ providers, led by the full Pragmatic Play lineup.
 
@@ -29,6 +31,7 @@ This is the official repository. Release 3.0 (2026) is a complete iGaming platfo
 
 | Channel | Link |
 | --- | --- |
+| Website | [zeusbyteinc.com](https://zeusbyteinc.com) |
 | Telegram channel | [t.me/goldsvet1](https://t.me/goldsvet1) |
 | Telegram group | [t.me/osscasino](https://t.me/osscasino) |
 | Developer — fastest response | [t.me/chessmate77](https://t.me/chessmate77) |
