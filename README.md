@@ -12,7 +12,7 @@ Official: [zeusbyteinc.com](https://zeusbyteinc.com) · Telegram [t.me/goldsvet1
 [![Vue](https://img.shields.io/badge/Vue-3-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org)
 [![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
 [![Redis](https://img.shields.io/badge/Redis-cache%20%2B%20queues-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io)
-[![License](https://img.shields.io/badge/license-proprietary-8B8B8B?style=for-the-badge)](#disclaimer)
+[![License: MIT](https://img.shields.io/badge/license-MIT-8B8B8B?style=for-the-badge)](LICENSE)
 
 This is the official repository. Release 3.0 (2026) is a complete iGaming platform on Laravel 12 and a Node.js real-time game server: multi-brand operation out of the box, an integrated agent network with tiered commissions, payment gateways including crypto, player retention tools — bonuses, VIP progress, tournaments — and a catalog of 1,800+ games from 20+ providers, led by the full Pragmatic Play lineup.
 
@@ -282,6 +282,12 @@ The fastest way to get in touch is directly with the developer — for the full 
 - **Developer: [t.me/chessmate77](https://t.me/chessmate77)** — fastest response, sales, and installation
 - Channel: [t.me/goldsvet1](https://t.me/goldsvet1)
 - Group: [t.me/osscasino](https://t.me/osscasino)
+
+---
+
+## License
+
+The public preview in this repository is released under the [MIT License](LICENSE).
 
 ---
 
