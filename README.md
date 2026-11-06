@@ -1,6 +1,6 @@
 # OSS Casino 2026
 
-**iGaming / online-casino platform source code — formerly Goldsvet.** Complete turnkey casino software by [Zeusbyte Inc](https://github.com/ZeusbyteInc): game aggregation, agent network with tiered commissions, crypto payments, and 1,800+ games from 20+ providers led by the full Pragmatic Play lineup.
+**iGaming / online-casino platform source code — formerly Goldsvet.** Complete turnkey casino script — delivered as full source code — by [Zeusbyte Inc](https://github.com/ZeusbyteInc): game aggregation, sportsbook, agent network with tiered commissions, crypto payments, and 1,800+ games from 20+ providers led by the full Pragmatic Play lineup.
 
 Official: [zeusbyteinc.com](https://zeusbyteinc.com) · Telegram [t.me/goldsvet1](https://t.me/goldsvet1) · group [t.me/osscasino](https://t.me/osscasino)
 
