@@ -21,7 +21,7 @@ This is the official repository. Release 3.0 (2026) is a complete iGaming platfo
 | | |
 | --- | --- |
 | **Release** | 3.0 — 2026 |
-| **Games** | 1,800+ titles · 55 GB+ |
+| **Games** | 1,800+ titles · 80 GB+ · self-hosted |
 | **Providers** | Pragmatic Play · PG Soft · EGT · KA · NetGame · and more |
 | **Channel** | [t.me/goldsvet1](https://t.me/goldsvet1) |
 
@@ -49,7 +49,7 @@ Only the GitHub account has changed. The official Telegram channel **[t.me/golds
 
 ## Overview
 
-This repository is a curated public preview of the platform: a selection of real source files from the current production codebase, published so you can verify the quality and architecture for yourself. The full distribution — more than 1,800 games totaling over 55 GB, listed title by title in the [complete game catalog](docs/GAMES.md) generated from the platform database — is available directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
+This repository is a curated public preview of the platform: a selection of real source files from the current production codebase, published so you can verify the quality and architecture for yourself. The full distribution — more than 1,800 games totaling over 80 GB, self-hosted as native files on your own infrastructure rather than streamed through a game API, listed title by title in the [complete game catalog](docs/GAMES.md) generated from the platform database — is available directly through our Telegram community, together with optional installation service on your VPS or dedicated server.
 
 For agent management and provider content aggregation, the ecosystem ships a companion panel: **[FiversCan](https://github.com/ZeusbyteInc/fiverscan)** — a Node.js agent panel with real-time balance and transaction feeds.
 
